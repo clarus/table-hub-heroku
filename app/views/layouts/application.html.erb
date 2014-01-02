@@ -5,10 +5,37 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-
-<%= yield %>
-
+  <header class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "sample app", '#', id: "logo" %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home",    '#' %></li>
+          <li><%= link_to "Help",    '#' %></li>
+          <li><%= link_to "Sign in", '#' %></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>&copy; Guillaume Claret 2013 <%= link_to "About", '#', class: 'pull-right' %></p>
+    </footer>
+  </div>
 </body>
 </html>

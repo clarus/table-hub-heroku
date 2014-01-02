@@ -1,0 +1,37 @@
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 12px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
