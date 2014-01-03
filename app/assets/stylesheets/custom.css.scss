@@ -45,3 +45,8 @@ footer {
   margin-top: 45px;
   box-sizing: border-box;
 }
+
+.gravatar {
+  @extend .img-rounded;
+  margin-right: 12px;
+}
