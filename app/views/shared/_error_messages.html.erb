@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-danger">
+    The form contains <%= pluralize(@user.errors.size, "error") %>.
+  </div>
+  <ul class="text-danger">
+    <% for msg in @user.errors.full_messages do %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>

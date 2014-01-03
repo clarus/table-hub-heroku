@@ -50,3 +50,7 @@ footer {
   @extend .img-rounded;
   margin-right: 12px;
 }
+
+.field_with_errors {
+  @extend .has-error;
+}
