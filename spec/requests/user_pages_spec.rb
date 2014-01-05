@@ -33,7 +33,7 @@ describe "User pages" do
 
         it { should have_title("Sign Up") }
         it { should have_content("1 error") }
-        it { should have_content("Email is invalid") }
+        it { should have_content("Email n'est pas valide") }
       end
     end
 
