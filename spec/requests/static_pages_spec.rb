@@ -1,22 +1,21 @@
 require 'spec_helper'
 
 describe "Static pages" do
-  base_title = "Ruby on Rails Tutorial Sample App"
+  base_title = "Table-Hub"
   subject { page }
 
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_content("Sample App") }
+    it { should have_content("Table-Hub") }
     it { should have_title(full_title("")) }
-    it { should_not have_title("| Home") }
   end
 
-  describe "Help page" do
-    before { visit help_path }
+  describe "Documentation page" do
+    before { visit doc_path }
 
-    it { should have_content("Help") }
-    it { should have_title(full_title("Help")) }
+    it { should have_content("Documentation") }
+    it { should have_title(full_title("Documentation")) }
   end
 
   describe "Contact page" do
@@ -29,7 +28,7 @@ describe "Static pages" do
   describe "About page" do
     before { visit about_path }
 
-    it { should have_content("About") }
-    it { should have_title(full_title("About")) }
+    it { should have_content("À propos") }
+    it { should have_title(full_title("À propos")) }
   end
 end

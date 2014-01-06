@@ -9,7 +9,7 @@ def sign_in(user, no_capybara: false)
   else
     visit signin_path
     fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Sign in"
+    fill_in "Mot de passe", with: user.password
+    click_button "Se connecter"
   end
 end

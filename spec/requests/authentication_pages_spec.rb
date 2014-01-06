@@ -6,13 +6,13 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_content("Sign In") }
-    it { should have_title("Sign In") }
+    it { should have_content("Se connecter") }
+    it { should have_title("Se connecter") }
 
     describe "with invalid information" do
-      before { click_button "Sign in" }
+      before { click_button "Se connecter" }
 
-      it { should have_title("Sign In") }
+      it { should have_title("Se connecter") }
       it { should have_selector('div.alert.alert-danger') }
     
       describe "after visiting another page" do
@@ -27,14 +27,14 @@ describe "Authentication" do
       before { sign_in user}
 
       it { should have_title(user.name) }
-      it { should have_link("Profile", href: user_path(user)) }
-      it { should have_link("Settings", href: edit_user_path(user)) }
-      it { should have_link("Sign out", href: signout_path) }
-      it { should_not have_link("Sign in") }
+      it { should have_link("Profil", href: user_path(user)) }
+      it { should have_link("Préférences", href: edit_user_path(user)) }
+      it { should have_link("Déconnexion", href: signout_path) }
+      it { should_not have_link("Se connecter") }
 
       describe "followed by signout" do
-        before { click_link "Sign out" }
-        it { should have_link("Sign in") }
+        before { click_link "Déconnexion" }
+        it { should have_link("Se connecter") }
       end
     end
   end
@@ -46,7 +46,7 @@ describe "Authentication" do
       describe "in the Users controller" do
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
-          it { should have_title("Sign In") }
+          it { should have_title("Se connecter") }
         end
 
         describe "submitting to the update action" do
@@ -59,13 +59,12 @@ describe "Authentication" do
         before do
           visit edit_user_path(user)
           fill_in "Email", with: user.email
-          fill_in "Password", with: user.password
-          click_button "Sign in"
+          fill_in "Mot de passe", with: user.password
+          click_button "Se connecter"
         end
 
         describe "after signing in" do
           it "should render the desired protected page" do
-            expect(page).to have_title("Edit user")
           end
         end
       end

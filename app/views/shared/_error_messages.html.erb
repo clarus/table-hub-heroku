@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div class="alert alert-danger">
-    The form contains <%= pluralize(@user.errors.size, "error") %>.
+    Le formulaire contient <%= pluralize(@user.errors.size, "erreur") %>.
   </div>
   <ul class="text-danger">
     <% for msg in @user.errors.full_messages do %>

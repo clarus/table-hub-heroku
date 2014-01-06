@@ -5,10 +5,10 @@ describe "User pages" do
 
   describe "signup page" do
     before { visit signup_path }
-    let(:submit) { "Create my account" }
+    let(:submit) { "Créer mon compte" }
 
-    it { should have_content("Sign Up") }
-    it { should have_title(full_title("Sign Up")) }
+    it { should have_content("Inscription") }
+    it { should have_title(full_title("Inscription")) }
 
     describe "with invalid information" do
       it "should not create an user" do
@@ -18,30 +18,30 @@ describe "User pages" do
       describe "after empty submission" do
         before { click_button submit }
 
-        it { should have_title("Sign Up") }
-        it { should have_content("error") }
+        it { should have_title("Inscription") }
+        it { should have_content("erreur") }
       end
 
       describe "after submission with wrong email" do
         before do
-          fill_in "Name", with: "Guillaume Claret"
+          fill_in "Nom", with: "Guillaume Claret"
           fill_in "Email", with: "guillaume@email"
-          fill_in "Password", with: "secret"
+          fill_in "Mot de passe", with: "secret"
           fill_in "Confirmation", with: "secret"
           click_button submit
         end
 
-        it { should have_title("Sign Up") }
-        it { should have_content("1 error") }
+        it { should have_title("Inscription") }
+        it { should have_content("1 erreur") }
         it { should have_content("Email n'est pas valide") }
       end
     end
 
     describe "with valid information" do
       before do
-        fill_in "Name", with: "Guillaume Claret"
+        fill_in "Nom", with: "Guillaume Claret"
         fill_in "Email", with: "guillaume@email.com"
-        fill_in "Password", with: "secret"
+        fill_in "Mot de passe", with: "secret"
         fill_in "Confirmation", with: "secret"
       end
 
@@ -54,8 +54,8 @@ describe "User pages" do
         let(:user) { User.find_by email: "guillaume@email.com" }
 
         it { should have_title(user.name) }
-        it { should have_selector('div.alert.alert-success', text: "Welcome") }
-        it { should have_link("Sign out", href: signout_path) }
+        it { should have_selector('div.alert.alert-success', text: "Bienvenue") }
+        it { should have_link("Déconnexion", href: signout_path) }
       end
     end
   end
@@ -76,31 +76,31 @@ describe "User pages" do
     end
 
     describe "page" do
-      it { should have_title("Edit user") }
-      it { should have_content("Update your profile") }
-      it { should have_link("change", href: 'http://gravatar.com/emails') }
+      it { should have_title("Préférences") }
+      it { should have_content("Préférences") }
+      it { should have_link("modifier", href: 'http://gravatar.com/emails') }
     end
 
     describe "with invalid information" do
-      before { click_button "Save changes" }
+      before { click_button "Sauvegarder changements" }
 
-      it { should have_content "error" }
+      it { should have_content "erreur" }
     end
 
     describe "with valid information" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name", with: new_name
+        fill_in "Nom", with: new_name
         fill_in "Email", with: new_email
-        fill_in "Password", with: user.password
-        fill_in "Confirm", with: user.password
-        click_button "Save changes"
+        fill_in "Mot de passe", with: user.password
+        fill_in "Confirmation", with: user.password
+        click_button "Sauvegarder"
       end
 
       it { should have_title(new_name) }
       it { should have_selector('div.alert.alert-success') }
-      it { should have_link("Sign out", href: signout_path) }
+      it { should have_link("Déconnexion", href: signout_path) }
       specify { expect(user.reload.name).to eq new_name }
       specify { expect(user.reload.email).to eq new_email }
     end
