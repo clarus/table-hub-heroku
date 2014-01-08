@@ -1,5 +1,6 @@
 Table-Hub-Heroku
 ================
+The Rails application deployed on https://www.table-hub.com/. It is running on [Heroku](https://www.heroku.com/) with the name `beyond-afternoon`.
 
 Setup
 -----
