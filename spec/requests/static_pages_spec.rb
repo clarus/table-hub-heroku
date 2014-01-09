@@ -11,13 +11,6 @@ describe "Static pages" do
     it { should have_title(full_title("")) }
   end
 
-  describe "Documentation page" do
-    before { visit doc_path }
-
-    it { should have_content("Documentation") }
-    it { should have_title(full_title("Documentation")) }
-  end
-
   describe "Contact page" do
     before { visit contact_path }
 
