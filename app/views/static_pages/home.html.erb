@@ -1,12 +1,30 @@
-<div class="row jumbotron">
+<div class="row welcome">
   <div class="col-md-6">
-    <img class="img-rounded pull-left img-responsive" alt="logo" src="assets/beer_bear.png"/>
+    <img class="img-rounded" alt="logo" src="assets/beer_bear.png"/>
   </div>
   <div class="col-md-6">
-    <h1>Table-Hub</h1>
-    <p>Que vous soyez un bar ou un restaurant, assurez facilement votre présence en ligne et gagnez de nouveaux clients.</p>
+    <h1 class="text-center">Table-Hub</h1>
+    <p class="lead text-center">Que vous soyez un bar ou un restaurant, assurez facilement votre présence en ligne et gagnez de nouveaux clients.</p>
 
-    <%= link_to "S'inscrire", signup_path, class: "btn btn-lg btn-success" %>
-    <%= link_to "Se connecter", signin_path, class: "btn btn-lg btn-primary" %>
+    <div class="">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <div class="form-group">
+              <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password, class: "form-control", placeholder: "Mot de passe" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "Créer mon compte", class: "btn btn-lg btn-primary btn-block" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

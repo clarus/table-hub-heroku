@@ -27,9 +27,13 @@ html {
   text-decoration: none;
 }
 
-.jumbotron {
-  text-align: center;
-  background-color: transparent;
+.welcome {
+  img {
+    margin-top: 30px;
+  }
+  h1 {
+    font-size: 63px;
+  }
 }
 
 footer {
