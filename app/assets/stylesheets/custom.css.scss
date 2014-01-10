@@ -28,6 +28,7 @@ html {
 }
 
 .welcome {
+  @extend .text-center;
   img {
     margin-top: 30px;
   }
