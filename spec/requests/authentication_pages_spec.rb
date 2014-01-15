@@ -32,6 +32,11 @@ describe "Authentication" do
       it { should have_link("Déconnexion", href: signout_path) }
       it { should_not have_link("Se connecter") }
 
+      describe "home page without signup form" do
+        it { should_not have_button("Créer mon compte") }
+        before { visit root_path }
+      end
+
       describe "followed by signout" do
         before { click_link "Déconnexion" }
         it { should have_link("Se connecter") }
