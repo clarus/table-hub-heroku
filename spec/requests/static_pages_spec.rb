@@ -9,6 +9,8 @@ describe "Static pages" do
 
     it { should have_content("Table-Hub") }
     it { should have_title(full_title("")) }
+
+    check_signup
   end
 
   describe "Contact page" do
