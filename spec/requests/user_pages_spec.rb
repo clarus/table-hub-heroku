@@ -33,7 +33,7 @@ describe "User pages" do
     end
 
     describe "with invalid information" do
-      before { click_button "Sauvegarder changements" }
+      before { click_button "Sauvegarder les changements" }
 
       it { should have_content "erreur" }
     end

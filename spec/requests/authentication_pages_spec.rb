@@ -27,14 +27,15 @@ describe "Authentication" do
       before { sign_in user}
 
       it { should have_title(user.name) }
-      it { should have_link("Profil", href: user_path(user)) }
-      it { should have_link("Préférences", href: edit_user_path(user)) }
+      it { should have_link("Édition", href: edit_user_path(user)) }
+      it { should have_link("Aperçu", href: user_path(user)) }
+      it { should have_link("Paramètres", href: edit_user_path(user)) }
       it { should have_link("Déconnexion", href: signout_path) }
       it { should_not have_link("Se connecter") }
 
       describe "home page without signup form" do
-        it { should_not have_button("Créer mon compte") }
         before { visit root_path }
+        it { should_not have_button("Créer mon compte") }
       end
 
       describe "followed by signout" do
