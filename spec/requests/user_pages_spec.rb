@@ -9,6 +9,7 @@ describe "User pages" do
 
     it { should have_content("Inscription") }
     it { should have_title(full_title("Inscription")) }
+    it { should_not have_content("Nom") }
 
     describe "with invalid information" do
       it "should not create an user" do
@@ -24,7 +25,6 @@ describe "User pages" do
 
       describe "after submission with wrong email" do
         before do
-          fill_in "Nom", with: "Guillaume Claret"
           fill_in "Email", with: "guillaume@email"
           fill_in "Mot de passe", with: "secret"
           fill_in "Confirmation", with: "secret"
@@ -39,7 +39,6 @@ describe "User pages" do
 
     describe "with valid information" do
       before do
-        fill_in "Nom", with: "Guillaume Claret"
         fill_in "Email", with: "guillaume@email.com"
         fill_in "Mot de passe", with: "secret"
         fill_in "Confirmation", with: "secret"

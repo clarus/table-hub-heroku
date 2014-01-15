@@ -1,8 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new name: "Me", email: "me@email.com",
-    password: "secret", password_confirmation: "secret" }
+  before do
+    @user = User.new(
+      email: "me@email.com",
+      password: "secret",
+      password_confirmation: "secret")
+  end
   subject { @user }
 
   it { should respond_to(:name) }
@@ -14,19 +18,13 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should be_valid }
 
-  describe "when name is not present" do
-    before { @user.name = " " }
-    it { should_not be_valid }
-  end
-
   describe "when email is not present" do
     before { @user.email = " " }
     it { should_not be_valid }
   end
 
   describe "when password is not present" do
-    before { @user = User.new name: "Me", email: "me@email.com",
-      password: " ", password_confirmation: " " }
+    before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
   end
 
