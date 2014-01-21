@@ -7,7 +7,7 @@
     <a href="http://gravatar.com/emails">modifier</a>
 
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', errors: @user.errors %>
       <div class="form-group">
         <%= f.label :name, "Nom" %>
         <%= f.text_field :name, class: "form-control" %>

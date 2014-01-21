@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
     end
 
     def create_web_page
-      build_web_page
+      build_web_page(
+        title: "Mon titre",
+        summary: "Un résumé.")
     end
 end

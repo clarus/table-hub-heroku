@@ -11,6 +11,8 @@ describe "WebPages pages" do
     end
 
     it { should have_content("Édition du site") }
+    it { should have_content("Titre") }
+    it { should have_button("Sauvegarder les changements") }
   end
 
   describe "show page" do

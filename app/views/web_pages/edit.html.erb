@@ -1,2 +1,21 @@
+<% provide(:title, "Édition du site") %>
 <h1>Édition du site</h1>
-<p>...</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@web_page) do |f| %>
+      <%= render 'shared/error_messages', errors: @web_page.errors %>
+      <div class="form-group">
+        <%= f.label :title, "Titre" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :summary, "Résumé" %>
+        <%= f.text_field :summary, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Sauvegarder les changements", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

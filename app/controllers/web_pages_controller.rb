@@ -1,7 +1,9 @@
 class WebPagesController < ApplicationController
-  def edit
+  def show
+    @web_page = current_user.web_page
   end
 
-  def show
+  def edit
+    @web_page = current_user.web_page
   end
 end
