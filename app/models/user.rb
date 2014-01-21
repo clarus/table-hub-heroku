@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     uniqueness: { case_sensitive: false}
   has_secure_password
   validates :password, length: { minimum: 6 }
-  before_create :create_remember_token
+  before_create :create_remember_token, :create_web_page
   has_one :web_page
 
   def User.new_remember_token
@@ -20,5 +20,9 @@ class User < ActiveRecord::Base
   private
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def create_web_page
+      build_web_page
     end
 end

@@ -3,11 +3,11 @@ require 'spec_helper'
 describe WebPage do
   let (:user) { FactoryGirl.create(:user) }
   before do
-    @web_page = user.build_web_page(
+    user.web_page.update(
       title: "My restaurant",
       summary: "The best restaurant ever is now opening!")
   end
-  subject { @web_page }
+  subject { user.web_page }
 
   it { should respond_to(:title) }
   it { should respond_to(:summary) }
@@ -16,7 +16,7 @@ describe WebPage do
   it { should be_valid }
 
   describe "when user_id is not present" do
-    before { @web_page.user_id = nil }
+    before { user.web_page.user_id = nil }
     it { should_not be_valid }
   end
 end
