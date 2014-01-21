@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
-  resources :users
+  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :web_pages, only: [:show, :edit, :update]
   resource :sessions, only: [:new, :create, :destroy]
   root 'static_pages#home'
   match '/contact', to: 'static_pages#contact', via: 'get'

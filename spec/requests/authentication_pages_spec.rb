@@ -27,8 +27,8 @@ describe "Authentication" do
       before { sign_in user}
 
       it { should have_title(user.name) }
-      it { should have_link("Édition", href: edit_user_path(user)) }
-      it { should have_link("Aperçu", href: user_path(user)) }
+      it { should have_link("Édition", href: edit_web_page_path(user.web_page)) }
+      it { should have_link("Aperçu", href: web_page_path(user.web_page)) }
       it { should have_link("Paramètres", href: edit_user_path(user)) }
       it { should have_link("Déconnexion", href: signout_path) }
       it { should_not have_link("Se connecter") }
